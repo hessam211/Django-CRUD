@@ -1,0 +1,31 @@
+<h1>Sellers</h1>
+
+<table>
+<thead>
+<tr>
+<th>seller_id</th>
+<th>Email</th>
+<th>Address</th>
+<th>Phone</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+{% for Sellers in object_list %}
+<tr>
+<td>{{ Sellers.seller_id }}</td>
+<td>{{ Sellers.first_name }}</td>
+<td>{{ Sellers.last_name }}</td>
+<td>{{ Sellers.phone_number }}</td>
+<td>{{ Sellers.id_code }}</td>
+<td>
+<a  href="{% url "seller_detail"  Sellers.seller_id  %}">details</a>
+<a  href="{% url "seller_update"  Sellers.seller_id  %}">edit</a>
+<a  href="{% url "seller_delete"  Sellers.seller_id  %}">delete</a>
+</td>
+</tr>
+
+{% endfor %}
+<a  href="{% url "seller_create" %}">Create User</a>
+</tbody>
+</table>
